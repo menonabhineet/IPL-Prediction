@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>IPL Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1>IPL Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="team1" placeholder="team1" required="required" />
+        <input type="text" name="team2" placeholder="team2" required="required" />
+		<input type="text" name="Toss" placeholder="Team 1 Toss Win" required="required" />
+			<input type="text" name="Form" placeholder="Team 1 Form Greater?" required="required" />
+				<input type="text" name="Strength" placeholder="Team 1 Strength Greater?" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Winner</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+<br>
+<br>
+Teams: 0->MI  1->KKR  2->RCB <br> 3->CSK  4->RR  5->DC  6->GL <br> 7->PBKS  8->SRH  9->RPS   
+
+ </div>
+
+
+
+</body>
+</html>
